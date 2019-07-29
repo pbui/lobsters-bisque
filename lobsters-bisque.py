@@ -8,7 +8,7 @@ import requests
 # Constants
 
 LOBSTERS_FEED_URL       = 'https://lobste.rs/rss'
-LOBSTERS_MINIMUM_SCORE  = 10
+LOBSTERS_MINIMUM_SCORE  = 5
 
 # Functions
 
