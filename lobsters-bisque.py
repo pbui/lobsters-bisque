@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import re
-
 import feedparser
 import requests
 
@@ -56,5 +54,4 @@ def write_articles_feed(articles):
 # Main Execution
 
 if __name__ == '__main__':
-    articles = (a for a in fetch_all_articles() if a['score'] > LOBSTERS_MINIMUM_SCORE)
-    write_articles_feed(articles)
+    write_articles_feed(a for a in fetch_all_articles() if a['score'] > LOBSTERS_MINIMUM_SCORE)
