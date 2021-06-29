@@ -2,11 +2,12 @@
 
 import feedparser
 import requests
+import time
 
 # Constants
 
 LOBSTERS_FEED_URL       = 'https://lobste.rs/rss'
-LOBSTERS_MINIMUM_SCORE  = 5
+LOBSTERS_MINIMUM_SCORE  = 10
 
 # Functions
 
@@ -27,6 +28,8 @@ def fetch_all_articles(url=LOBSTERS_FEED_URL):
             'guid'     : entry.guid,
             'score'    : fetch_article_score(entry.comments),
         }
+
+        time.sleep(0.5)   # Work around rate limit
 
 def write_articles_feed(articles):
     print('''<?xml version="1.0" encoding="UTF-8"?>
